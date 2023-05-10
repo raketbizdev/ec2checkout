@@ -1,0 +1,33 @@
+<%= render partial: 'layouts/nav' %>
+<section>
+  <div class="container">
+    <h1>Products</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Product Url</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.id %></td>
+            <td><%= product.name %></td>
+            <td><%= product.link_url %></td>
+            <td><%= number_to_currency(product.price) %></td>
+            <td>
+              <%= link_to 'Edit', edit_storefronts_product_path(product), class: 'btn btn-sm btn-primary' %>
+              <%= link_to 'Delete', storefronts_product_path(product), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="w-100"></div>
+    <%= paginate @products %>
+  </div>
+</section>

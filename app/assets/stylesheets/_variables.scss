@@ -1,0 +1,44 @@
+
+
+// Ocean color
+$ocean: #4267B2;
+
+// Shark color
+$shark: #212529;
+
+$navy-blue: #1C3D5A;
+$dark-red: #8B0000;
+$gold: #FFD700;
+$off-white: #F5F5F5;
+$dark-gray: #333333;
+
+
+:root {
+  --bs-card-color: $navy-blue;
+  --bs-body-color: $navy-blue;
+}
+// Override Bootstrap color variables with custom colors
+$primary: $navy-blue;
+$secondary: $dark-gray;
+
+// $blue
+// $indigo
+// $purple
+// $pink
+$red: $dark-red;
+// $orange
+$yellow: $gold;
+// $green
+// $teal
+// $cyan
+$white: $off-white;
+// $gray
+// $gray-dark
+// $primary
+// $secondary
+// $success
+// $info
+// $warning:
+// $danger
+// $light
+// $dark

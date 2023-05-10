@@ -1,0 +1,31 @@
+<section class="portfolio-block block-intro mt-3 mb-5">
+  <div class="container bg-light py-5 rounded">
+    <div class="avatar"></div>
+    <div class="about-me">
+      <%= @storefront.store_name %>
+    </div>
+    <%= render partial: 'storefronts/nav' %>
+  </div>
+</section>
+<div class="container">
+  <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
+    <% cache @products do %>
+      <% @products.each do |product| %>
+        <div class="col mb-3 g-1">
+          <div class="card h-100">
+            <img src="https://via.placeholder.com/150x150.png?text=Product+Image" alt="Product Image" class="card-img-top">
+            <div class="card-body d-flex flex-column p-2">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text"><%= number_to_currency(product.price) %></p>
+              <div class="mt-auto">
+                <%= link_to "View Product", product.link_url, class: "btn btn-primary col-12" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="w-100"></div>
+    <%= paginate @products %>
+  </div>
+</div>
