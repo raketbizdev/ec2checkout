@@ -11,18 +11,24 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navcol-1" class="collapse navbar-collapse">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-        <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-      </ul>
       <% if user_signed_in? %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-primary shadow', 'data-method': :delete %>
-        <%#= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'btn btn-primary shadow' %>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <%= link_to "#", class: "nav-link dropdown-toggle", id: "navbardrop", "data-bs-toggle": "dropdown", "aria-expanded": "false" do %>
+              <%= image_tag "https://via.placeholder.com/40x40.png?text=Product+Image", class: "rounded-circle nav-profile-image" %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbardrop">
+              <li><%= link_to 'Settings', "#", class: 'dropdown-item' %></li>
+              <li><%= link_to 'Profile', "#", class: 'dropdown-item' %></li>
+              <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'dropdown-item' %></li>
+            </ul>
+          </li>
+        </ul>
       <% else %>
-        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-primary shadow' %>
-        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary shadow' %>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %></li>
+          <li class="nav-item"><%= link_to 'Sign up', new_user_registration_path, class: 'nav-link' %></li>
+        </ul>
       <% end %>
     </div>
   </div>

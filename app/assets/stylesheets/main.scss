@@ -35,3 +35,6 @@
   left: 50%;
   transform: translate(-50%, 0);
 }
+.navbar-nav .dropdown-toggle::after {
+  display: none;
+}
